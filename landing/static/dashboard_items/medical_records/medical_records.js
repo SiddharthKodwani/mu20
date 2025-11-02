@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cachedFiles.forEach(file => formData.append("report", file));
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/medical_records/", {
+      const response = await fetch("/medical_records/", {
         method: "POST",
         body: formData,
         headers: { "X-CSRFToken": form.csrfmiddlewaretoken.value },
