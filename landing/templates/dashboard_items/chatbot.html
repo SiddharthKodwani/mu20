@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Health Chatbot</title>
+  <link rel="stylesheet" href="{% static 'dashboard_items/chatbot/chatbot.css' %}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h1>HealthMate</h1>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="/dashboard/">Dashboard</a>
+        <a href="/chatbot/">Health Assistant</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div>
+          <h2>Health Assistant</h2>
+          <p>Ask anything about your health or diet</p>
+        </div>
+        <button id="openRecordsBtn" class="records-btn">Medical Records</button>
+      </div>
+
+      <div id="chatbox" class="chat-box">
+        <div class="bot-message">
+          Hi there! 👋 I'm your health assistant.<br>
+          I already know your profile details, so just ask about your meals, fitness, or any health concern.
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your message..." autofocus>
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔹 Modal Overlay -->
+  <div id="recordsModal" class="records-modal">
+    <div class="records-modal-content">
+      <span id="closeModal" class="close-modal">&times;</span>
+      <iframe src="/medical_records/" class="records-frame"></iframe>
+    </div>
+  </div>
+
+  <!-- ✅ Hidden CSRF token (Django will render this securely) -->
+  <form id="csrf-form" style="display:none;">
+    {% csrf_token %}
+  </form>
+
+  <script src="{% static 'dashboard_items/chatbot/chatbot.js' %}"></script>
+</body>
+</html>

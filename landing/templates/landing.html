@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Health Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
+        <h1 class="text-2xl font-semibold text-green-600">HealthMate</h1>
+        <div class="space-x-4">
+            <a href="/login" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Login</a>
+            <a href="/signup" class="px-4 py-2 border border-green-500 text-green-600 rounded-lg hover:bg-green-50">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-8">
+        <h2 class="text-4xl font-bold mb-6">Your Personal Health, Nutrition & Fitness Assistant</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Speak to track your meals, get personalized exercise suggestions, and integrate your medical reports — 
+            all in one place.
+        </p>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="grid md:grid-cols-3 gap-8 px-8 pb-20 max-w-6xl mx-auto">
+        <div class="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold mb-3 text-green-600">Voice-Based Food Tracking</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Speak naturally to log your meals. The app identifies foods, calculates calories and nutrients, 
+                and suggests what to eat next based on your BMI and goals.
+            </p>
+        </div>
+
+        <div class="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold mb-3 text-green-600">Personalized Exercise Suggestions</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Get custom home workouts tailored to your fitness level and health conditions to stay active and balanced.
+            </p>
+        </div>
+
+        <div class="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold mb-3 text-green-600">Medical Record Integration & Insights</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Upload your medical records to receive intelligent insights and preventive health tips based on your data.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm border-t">
+        © 2025 HealthMate. All rights reserved.
+    </footer>
+
+</body>
+</html>

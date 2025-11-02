@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Diet Tracker</title>
+  <link rel="stylesheet" href="{% static 'dashboard/dashboard.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h1>HealthMate</h1>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="/dashboard/">Dashboard</a>
+        <a href="/chatbot/">Health Assistant</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Layout Wrapper -->
+  <div class="layout">
+    
+    <!-- Sidebar Profile -->
+    <aside class="sidebar card">
+      <div class="profile-header">
+        <h2>{{ profile.full_name }}</h2>
+        <p>{{ profile.age }} yrs | {{ profile.gender|title }}</p>
+      </div>
+      <ul class="profile-details">
+        <li><strong>Height:</strong> {{ profile.height }} ft</li>
+        <li><strong>Weight:</strong> {{ profile.weight }} kg</li>
+        <li><strong>Activity:</strong> {{ profile.activity|title }}</li>
+        <li><strong>Diet:</strong> {{ profile.diet }}</li>
+        <li><strong>BMI:</strong> {{ profile.bmi }} ({{ profile.bmi_category }})</li>
+      </ul>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-content">
+
+      <!-- AI Input -->
+      <section class="ai-query card">
+        <h2>Describe Your Meal</h2>
+        <div class="ai-input">
+          <input type="text" id="aiQuestion" placeholder="Describe your meal in brief, including portions...">
+          <button id="voiceBtn" title="Speak"><i class="fa-solid fa-microphone"></i></button>
+          <button id="askBtn">Go</button>
+        </div>
+        <p id="aiResponse" class="muted"></p>
+      </section>
+
+            <!-- Progress Tracker -->
+      <section class="tracker card">
+        <h2>Progress Tracker</h2>
+        <div class="tracker-bars">
+          <div class="progress-item">
+            <label>Calories</label>
+            <div class="progress-bar"><div class="progress-fill" id="calories-progress"></div></div>
+            <span id="calories-text">0 / {{ profile.daily_calories }} kcal</span>
+          </div>
+          <div class="progress-item">
+            <label>Protein</label>
+            <div class="progress-bar"><div class="progress-fill" id="protein-progress"></div></div>
+            <span id="protein-text">0 / {{ profile.protein_g }} g</span>
+          </div>
+          <div class="progress-item">
+            <label>Fat</label>
+            <div class="progress-bar"><div class="progress-fill" id="fat-progress"></div></div>
+            <span id="fat-text">0 / {{ profile.fat_g }} g</span>
+          </div>
+          <div class="progress-item">
+            <label>Carbs</label>
+            <div class="progress-bar"><div class="progress-fill" id="carbs-progress"></div></div>
+            <span id="carbs-text">0 / {{ profile.carbs_g }} g</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Daily Targets -->
+      <section class="daily-targets card">
+        <h2>Daily Targets</h2>
+        <div class="targets-grid">
+          <div class="target-box"><h3>Calories</h3><p>{{ profile.daily_calories }} kcal</p></div>
+          <div class="target-box"><h3>Protein</h3><p>{{ profile.protein_g }} g</p></div>
+          <div class="target-box"><h3>Fat</h3><p>{{ profile.fat_g }} g</p></div>
+          <div class="target-box"><h3>Carbs</h3><p>{{ profile.carbs_g }} g</p></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="{% static 'dashboard/dashboard.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  color: #333;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 700px;
+}
+
+h2 {
+  color: #0066cc;
+  margin-top: 0;
+}
+
+h3 {
+  color: #444;
+  margin-top: 1.8rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.4rem;
+}
+
+.form-group {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.upload-section {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  display: flex;
+  justify-content: space-between; /* or center/space-around depending on layout */
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem; /* space between buttons */
+}
+
+.upload-section input[type="file"] {
+  border: none;
+  font-size: 14px;
+}
+
+button {
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #004fa3;
+}
+
+#uploadStatus {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  color: #555;
+}
+
+.report-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.report-item {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  max-width: 250px;
+  word-break: break-word;
+}
+
+.report-name {
+    padding-right: 8px;
+}
+
+.report-item:hover {
+  background: #f1f1f1;
+}
+
+.pdf-thumb {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 6px;
+}
+
+.report-item div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.report-item p {
+  font-size: 13px;
+  color: #333;
+  margin: 0;
+  word-break: break-word;
+  display: inline;
+}
+
+.delete-btn {
+  background-color: #e63946;
+  border: none;
+  color: white;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c92a36;
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+.no-reports {
+  font-size: 14px;
+  color: #777;
+}
+
+#addFileBtn {
+  width: auto;
+  padding: 0.6rem 1.2rem;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+

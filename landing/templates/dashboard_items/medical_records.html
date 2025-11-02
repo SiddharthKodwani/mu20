@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medical Records | Diet Tracker</title>
+  <link rel="stylesheet" href="{% static 'dashboard_items/medical_records/medical_records.css' %}">
+</head>
+<body>
+
+  <main class="dashboard-container">
+    <section class="card">
+      <h2>Upload Your Medical Reports</h2>
+      <form id="medicalForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h3>Basic Health Context</h3>
+
+        <div class="form-group">
+          <label>1. Are you currently on any medication or supplements?</label>
+          <input type="text" name="medications" placeholder="e.g. Vitamin D, Iron tablets">
+        </div>
+
+        <div class="form-group">
+          <label>2. Do you smoke or consume alcohol? If yes, how often?</label>
+          <input type="text" name="habits" placeholder="e.g. Occasionally / Regularly / Never">
+        </div>
+
+        <div class="form-group">
+          <label>3. How many hours of sleep do you usually get per night?</label>
+          <input type="number" name="sleep_hours" min="0" max="24" placeholder="e.g. 7">
+        </div>
+
+        <h3>Diet & Nutrition</h3>
+
+        <div class="form-group">
+          <label>4. Do you follow any specific diet (e.g., vegetarian, high-protein, intermittent fasting)?</label>
+          <input type="text" name="diet_type" placeholder="Describe your diet pattern">
+        </div>
+
+        <div class="form-group">
+          <label>5. How many meals do you typically eat per day?</label>
+          <input type="number" name="meal_count" min="1" max="10" placeholder="e.g. 3">
+        </div>
+
+        <div class="form-group">
+          <label>6. Do you have any foods you avoid or dislike for health or personal reasons?</label>
+          <input type="text" name="food_avoid" placeholder="e.g. Dairy, Gluten, Spicy food">
+        </div>
+
+        <h3>Family & Medical Background</h3>
+
+        <div class="form-group">
+          <label>7. Do you have a family history of diabetes, heart disease, or thyroid disorders?</label>
+          <input type="text" name="family_history" placeholder="e.g. Diabetes (father), Heart disease (grandparent)">
+        </div>
+
+        <div class="form-group">
+          <label>8. Have you had any major surgeries or hospitalizations in the past 2 years?</label>
+          <input type="text" name="surgeries" placeholder="e.g. Appendectomy, Knee surgery">
+        </div>
+
+        <div class="upload-section">
+          <label>Upload your latest medical report (PDF only)</label>
+          <input type="file" name="report" accept=".pdf">
+          <button type="button" id="addFileBtn">Add File</button>
+
+          <div class="report-thumbnails">
+            {% for record in records %}
+              {% if record.filename %}
+                <div class="report-item" data-filename="{{ record.filename }}">
+                  <a href="{{ record.file_url }}" target="_blank">
+                    <p>{{ record.filename }}</p>
+                  </a>
+                  <button type="button" class="delete-btn" data-filename="{{ record.filename }}">×</button>
+                </div>
+              {% endif %}
+            {% empty %}
+              <p class="no-reports">No reports uploaded yet.</p>
+            {% endfor %}
+            <p id="uploadStatus"></p>
+          </div>
+
+          <div class="submit-section">
+            <button type="submit">Submit</button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="{% static 'dashboard_items/medical_records/medical_records.js' %}"></script>
+</body>
+</html>
