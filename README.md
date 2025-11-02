@@ -1,4 +1,4 @@
-
+#The website is live on - https://healthmate-k9xb.onrender.com/
 # 🩺 HealthMate – Walkthrough Guide
 
 Follow this short walkthrough to learn how to access and use the app effectively -
@@ -93,4 +93,5 @@ HealthMate provides a smooth, AI-driven health tracking experience:
 4. Track your progress and interact with your health assistant.
 
 HealthMate grows with you — the more you use it, the smarter it becomes.
+
 
